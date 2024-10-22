@@ -6,22 +6,39 @@
 
 # <h1 align=center>**Análisis de datos de Siniestros Viales en la Ciudad de Buenos Aires**</h1>
 
-# **CONSIGNA:**
+# **INTRODUCCIÓN y CONTEXTO:**
 
-Elaboración de un proyecto de anális de datos, con el fin de generar información que le permita a las autoridades locales tomar medidas para disminuir la cantidad de víctimas fatales de los siniestros viales
+Buenos Aires, como una de las ciudades más grandes y transitadas de Argentina, enfrenta un gran desafío en cuanto a la seguridad vial.
+El Observatorio de Movilidad y Seguridad Vial (OMSV), centro de estudios que se encuentra bajo la órbita de la Secretaría de Transporte del Gobierno de la Ciudad Autónoma de Buenos Aires, ha solicitadola elaboración de un proyecto de anális de datos, con el fin de generar información que le permita a las autoridades locales tomar medidas para disminuir la cantidad de víctimas fatales de los siniestros viales.
+El presente análisis permite dimensionar la problemática en la Ciudad de Buenos Aires, caracterizar los siniestros e identificar perfiles de víctimas. El objetivo es poder brindar datos vinculados a la siniestralidad vial fatal que generen información oportuna y relevante para la toma de decisiones basada en la evidencia.
+<p align="center">
+<img src="./_src/65a9608980bddc671e0e35c6c6305607.png"  height=400>
+</p>
+
 
 
 # TABLA DE CONTENIDO
-1. [ETL y EDA](#1-etl-y-eda*)
-2. [Principales Conclusiones de EDA](#2-principales-conclusiones-de-eda*)
-3. [Dashboard](#3-dashboard)
-4. [Conclusiones Finales](#4-conclusiones-finales)
-5. [Requisitos](#requisitos)
-6. [Estructura del Proyecto](#estructura-del-proyecto)
+1. [Fuente de Datos](#1)
+2. [Análisis de datos - ETL y EDA](#2)
+3. [Principales Conclusiones de EDA](#3)
+4. [Dashboard](#4) 
+5. [Conclusiones Finales](#5)
+6. [Posibles medidas para la reducción de Siniestros Viales](#6)
+7. [Requisitos](#7)
+8. [Estructura del Proyecto](#8)
+9. [Contacto](#9)
 
 
-# **TAREAS REALIZADAS:**
-# <h3>**1. ETL y EDA**</h3>
+# <h2 id="1">**1. Fuente de datos**</h2>
+La información se obtuvo de la página oficial del [Gobierno de Buenos Aires](https://data.buenosaires.gob.ar/dataset/victimas-siniestros-viales):
+
+
+- **`Tabla de Hechos:`** contiene la información temporal, espacial y los participantes de cada Siniestro Vialuna indexada con un **`Id`**.
+- **`Tabla de Víctimas:`** contiene la información de las víctimas y se relacina con la tabla de Hechos mediante el **`Id`**. Puede haber más de una Víctima para un mismo Hecho.
+
+# <h2 id="2">**2. Análisis de datos - ETL y EDA**</h2>
+
+Se presenta un [Notebook](./notebooks/ETL%20y%20EDA.ipynb) con el el proceso completo de ETL y EDA.
 
 - En primer lugar se relizó la ingesta de los datos proporcionados y se elaboró un primer informe utilizando la librería **`ydata_profiling`**. Los datos fueron proporcionados por el Observatorio de Movilidad y Seguridad Vial de la Ciudad de Buenos Aire dependiente de la Secretaría de Transporte en un archivo llamado **`homicidios.xlsx`** que contiene la información de:
     - **`Hechos`**: Contiene información sobre los Siniestros Viales en el período 2016 - 2021.
@@ -59,14 +76,14 @@ Elaboración de un proyecto de anális de datos, con el fin de generar informaci
 
 - Se realizó el análisis Univariado, Bivariado y Multivariado con la siguientes conclusiones.
 
-# <h3>**2. Principales Conclusiones de EDA**</h3>
+# <h2 id="3">**3. Principales Conclusiones de EDA**</h2>
 
 #### **2.1. Cantidad de Víctimas por Año**
 - El año con más cantidad de víctimas registrdas fue el 2018.
 - Se nota un descenso de la cantidad de víctimas a partir del año 2019. Es probable que se hayan tomado medidas para disminuir la los Siniestros Viales. 
 - Es probable que la disminución del año 2020 haya estado influenciada por la Pandemia.
 <p align="center">
-<img src="./_src/1. Cantidad de Víctimas por año.png"  height=400>
+<img src="./_src/1. Cantidad de Víctimas por año.png"  style="max-width: 100%; height: auto;">
 </p>
 
 
@@ -75,14 +92,14 @@ Elaboración de un proyecto de anális de datos, con el fin de generar informaci
 - Se observa un gran incremento en diciembre 2020 lo que considerarse un outlier.
 - Si se realiza un análisis social, el encierro podría haber producido que durante la liberación antes las fiestas de fin de año, las personas hayan tenido comportamientos más riesgosos lo que haya conducido a un incremento en las víctimas fatales por accidentes de tránsito.
 <p align="center">
-<img src="./_src/2. Serie temporal de Cantidad de Víctimas.png"  height=400>
+<img src="./_src/2. Serie temporal de Cantidad de Víctimas.png"  style="max-width: 100%; height: auto;">
 </p>
 
 #### **2.3. Cantidad de Víctimas por Hora del Día en días Laborales (sin incluir el año 2020)**
 -	En días laborables, entre los rangos horarios de 07 a 11 horas y de 14 a 18 horas, se produce un aumento del promedio de víctimas.
 -	Las medidas deberían estar orientadas a reducir los accidentes en estos rangos horarios.
 <p align="center">
-<img src="./_src/3. Cantidad de Víctimas por Hora del Día en días Laborales.png"  height=400>
+<img src="./_src/3. Cantidad de Víctimas por Hora del Día en días Laborales.png"  style="max-width: 100%; height: auto;">
 </p>
 
 
@@ -91,7 +108,7 @@ Elaboración de un proyecto de anális de datos, con el fin de generar informaci
 - Las medidas deberían estar orientadas a reducir los accidentes en el rango horario de 05 a 07 horas.
 - Se observa un rango de mayor cantidad de vícitimas fatales en días no laborales entre las 05 y 07 horas y para un rango etario entre 20 y 30 años.
 <p align="center">
-<img src="./_src/4. Cantidad de Víctimas por Hora del Día en días No Laborales.png"  height=400>
+<img src="./_src/4. Cantidad de Víctimas por Hora del Día en días No Laborales.png"   style="max-width: 100%; height: auto;">
 </p>
 
 
@@ -100,7 +117,7 @@ Elaboración de un proyecto de anális de datos, con el fin de generar informaci
 -	Entre 70 y 80 años se vuelve a dar un máximo.
 -	Se observan pocas víctimas infantiles.
 <p align="center">
-<img src="./_src/5. Cantidad de Víctimas por Edad.png"  height=400>
+<img src="./_src/5. Cantidad de Víctimas por Edad.png"   style="max-width: 100%; height: auto;">
 </p>
 
 
@@ -108,7 +125,7 @@ Elaboración de un proyecto de anális de datos, con el fin de generar informaci
 -	Se identifica que la mayoría de los siniestros ocurren en Intersecciones de Calles.
 -	Se deberían tomar medidas para reducir los siniestros viales en Intersecciones, ejemplo, colocación de semáforos.
 <p align="center">
-<img src="./_src/6. Cantidad de Víctimas por Tipo de Cruce.png"  height=400>
+<img src="./_src/6. Cantidad de Víctimas por Tipo de Cruce.png"   style="max-width: 100%; height: auto;">
 </p>
 
 
@@ -117,21 +134,21 @@ Elaboración de un proyecto de anális de datos, con el fin de generar informaci
 -	Como se puede observar en el mapa de calor, la mayoría de las víctimas ocurren en las Comuna 1 y 4, en relación a la zona céntrica de la Ciudad, probablemente la que mayor tráfico tenga. Las medidas podrían focalizarse en estas zonas geográficas.
 -	En el mapa por puntos se corrobora lo mostrado en el gráfico de accidentes por Tipo de calle, que la mayor cantidad de accidentes suceden en Avenidas y Calles dentro de la ciudad.
 <p align="center">
-<img src="./_src/7. Mapa de Calor.png"  height=400>
+<img src="./_src/7. Mapa de Calor.png"   style="max-width: 100%; height: auto;">
 </p>
 
 
 #### **2.8. Cantidad de Víctimas por Tipo de Víctima**
 - Como se puede observar, la mayor cantidad de víctimas son motociclistas o peatones.
 <p align="center">
-<img src="./_src/8. Cantidad de Víctimas por Tipo de Víctima.png"  height=400>
+<img src="./_src/8. Cantidad de Víctimas por Tipo de Víctima.png"   style="max-width: 100%; height: auto;">
 </p>
 
 
 #### **2.9. Gráfico 17: Cantidad de Víctimas por Tipo de Acusado**
 - Como se puede observar, la mayor cantidad de contrapartes son los Autos, el Transporte Público y los transportes de Carga.
 <p align="center">
-<img src="./_src/9. Cantidad de Víctimas por Tipo de Acusado.png"  height=400>
+<img src="./_src/9. Cantidad de Víctimas por Tipo de Acusado.png"   style="max-width: 100%; height: auto;">
 </p>
 
 
@@ -139,10 +156,10 @@ Elaboración de un proyecto de anális de datos, con el fin de generar informaci
 - Se detecta que la mayor cantidad de víctimas son Petones causados por accidentes de tránsito en el medio de Transporte Público.
 - En segundo lugar se destaca la cantidad de muertes de Peatones y Motos causadas por accidentes con Autos y por Transportes de Carga.
 <p align="center">
-<img src="./_src/10. Heatmap de Víctima vs Acusado.png"  height=600>
+<img src="./_src/10. Heatmap de Víctima vs Acusado.png"   style="max-width: 100%; height: auto;">
 </p>
 
-# <h3>**3. Dashboard**</h3>
+# <h2 id="4">**4. Dashboard**</h2>
  Una vez realizado el ETL y el EDA se elaboró un esquema de objetivos a alcanzar para la conformación un Storytelling que permitirera focalizar el análisis realizado en función de los resultados que se desean obtener.
 
 **OJETIVOS**
@@ -156,6 +173,7 @@ Elaboración de un proyecto de anális de datos, con el fin de generar informaci
 - ¿Cuáles son las edades de las víctimas?
 
 **DATOS ADICIONALES**
+
 Para poder calcular métricas y realizar análisis adicionales fue necesario importar algunos datos adicionales:
 - Cantidad de Población por Año y por Comuna: https://www.estadisticaciudad.gob.ar/eyc/?p=28146
 - Mapa de comuna SHP: https://data.buenosaires.gob.ar/dataset/comunas/resource/Juqdkmgo-612222-resource
@@ -166,15 +184,21 @@ Para poder calcular métricas y realizar análisis adicionales fue necesario imp
 
 Como resultado se conformaron 3 Dashboards:
 
+**OVERVIEW**
+
 - Un Overview que permita tener una primera aproximación general.
 <p align="center">
-<img src="./_src/11. Dashboard 1.PNG"  height=400>
+<img src="./_src/11. Dashboard 1.PNG"   style="max-width: 100%; height: auto;">
 </p>
+
+**GEORREFERENCIACIÓN**
 
 - Un dashboard de Georreferencicación que permitiera ver la ubicación geográfica de los siniestros viales y realizar un análisis pormenorizado de los focos de accidentes.
 <p align="center">
-<img src="./_src/12. Dashboard 2.PNG"  height=400>
+<img src="./_src/12. Dashboard 2.PNG"  style="max-width: 100%; height: auto;">
 </p>
+
+**KPIs**
 
 - Un dashboards de KPIs que nos permita evaluar cómo fueron evolucionan las métricas requeridas, considerando:
     - KPI 1: Reducir en un 10% la tasa semestral de siniestros viales.
@@ -182,10 +206,10 @@ Como resultado se conformaron 3 Dashboards:
     - KPI 3: Reducir en un 5% la tasa anual de víctimas por siniestros viales en días No Laborales entre las 05 y 07 horas.
 
 <p align="center">
-<img src="./_src/13. Dashboard 3.PNG"  height=400>
+<img src="./_src/13. Dashboard 3.PNG"   style="max-width: 100%; height: auto;">
 </p>
 
-# <h3>**4. Conclusiones Finales**</h3>
+# <h2 id="5">**5. Conclusiones Finales**</h2>
 - Desde el año 2019 se ha logrado reducir la cantidad de víctimas fatales por accidentes de tránsito en la Ciudad de Buenos Aires.
 - El año 2020 resultó un año atípico en el que las restricciones de la circulación por la Pandemia produjeron una reducción en la cantidad de siniestros viales.
 - La Tasa de Siniestralidad por cada 100 mil Habitantes del año 2021 de la Ciudad de Buenos Aires se encuentra por debajo de la media nacional.
@@ -194,8 +218,14 @@ Como resultado se conformaron 3 Dashboards:
 - La principal zona de accidentes fatales es el microcentro (Comuna 1) en los días y horarios Laborales.
 - En días No Laborales las principales zonas de conflicto son la Comuna 8 que incluye los barrios de Villa Soldati, Villa Riachuelo y Villa Lugano y la Comuna 11 que incluyen los barrios de Villa General Mitre, Villa Devoto, Villa del Parque y Villa Santa Rita.
 
+# <h2 id="6">**6. Posibles medidas para la reducción de Siniestros Viales**</h2>
 
-# <h3>**Requisitos**</h3>
+- Limitar el transporte vehicular particular y de transporte de carga durante días Laborales y mejorar la infraestructura en la zona céntrica.
+- Reforzar los controles de tránsito, alcoholemia y velocidad en días No Laborales durante la madrugada en las zonas de Villa Soldati, Villa Riachuelo, Villa Lugano, Villa General Mitre, Villa Devoto, Villa del Parque y Villa Santa Rita.
+- Realizar campañas de educación vial y concientización enfocados en motociclistas y conductores jóvenes.
+
+
+# <h2 id="7">**Requisitos**</h2>
 - Python 3.7 o superior
 - pandas
 - ydata_profiling
@@ -206,7 +236,7 @@ Como resultado se conformaron 3 Dashboards:
 - Power BI.
 
 
-# <h3>**Estructura del Proyecto**</h3>
+# <h2 id="8">**Estructura del Proyecto**</h2>
 - `_src/`: Imágenes utilizadas y archivo Shape Ciudad de Buenos Aires.
 - `datasts/`: Contiene los archivos de datos utilizados
 - `notebooks/`: Jupyter notebooks con el análisis.
@@ -214,3 +244,8 @@ Como resultado se conformaron 3 Dashboards:
 - `Reportes Siniestros Viales Argentina/`: Con bibliografía utilizada de la estadística de siniestros viales de Argentina
 - `Manual de marca GCBA/`: Con el manual de marcas y el tema de colores utilizado según el manual de marca de la Ciudad de Buenos Aires.
 - `Readme.md`: Documentación.
+- `PI02_Dashboard Siniestros Viales CBA.pbix`: Dashboard desarrollado en Power BI.
+
+# <h2 id="9">**Contacto**</h2>
+- Nombre compelto: Hernán Lussiatti
+- Mail: hernanlussiatti@gmail.com
