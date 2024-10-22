@@ -117,7 +117,7 @@ Elaboración de un proyecto de anális de datos, con el fin de generar informaci
 -	Como se puede observar en el mapa de calor, la mayoría de las víctimas ocurren en las Comuna 1 y 4, en relación a la zona céntrica de la Ciudad, probablemente la que mayor tráfico tenga. Las medidas podrían focalizarse en estas zonas geográficas.
 -	En el mapa por puntos se corrobora lo mostrado en el gráfico de accidentes por Tipo de calle, que la mayor cantidad de accidentes suceden en Avenidas y Calles dentro de la ciudad.
 <p align="center">
-<img src="./_src/7. Mapa de Calor.png"  height=500>
+<img src="./_src/7. Mapa de Calor.png"  height=400>
 </p>
 
 
@@ -179,7 +179,7 @@ Como resultado se conformaron 3 Dashboards:
 - Un dashboards de KPIs que nos permita evaluar cómo fueron evolucionan las métricas requeridas, considerando:
     - KPI 1: Reducir en un 10% la tasa semestral de siniestros viales.
     - KPI 2: Reducir en un 7% la tasa anual de siniestros viales de motociclistas.
-    - KPI 3: Reducir en un 5% la tasa anuak de víctimas por siniestros viales en días No Laborales entre las 05 y 07 horas.
+    - KPI 3: Reducir en un 5% la tasa anual de víctimas por siniestros viales en días No Laborales entre las 05 y 07 horas.
 
 <p align="center">
 <img src="./_src/13. Dashboard 3.PNG"  height=400>
