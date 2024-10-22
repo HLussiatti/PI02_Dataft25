@@ -12,7 +12,7 @@ Buenos Aires, como una de las ciudades más grandes y transitadas de Argentina, 
 El Observatorio de Movilidad y Seguridad Vial (OMSV), centro de estudios que se encuentra bajo la órbita de la Secretaría de Transporte del Gobierno de la Ciudad Autónoma de Buenos Aires, ha solicitadola elaboración de un proyecto de anális de datos, con el fin de generar información que le permita a las autoridades locales tomar medidas para disminuir la cantidad de víctimas fatales de los siniestros viales.
 El presente análisis permite dimensionar la problemática en la Ciudad de Buenos Aires, caracterizar los siniestros e identificar perfiles de víctimas. El objetivo es poder brindar datos vinculados a la siniestralidad vial fatal que generen información oportuna y relevante para la toma de decisiones basada en la evidencia.
 <p align="center">
-<img src="./_src/65a9608980bddc671e0e35c6c6305607.png"  height=400>
+<img src="./_src/65a9608980bddc671e0e35c6c6305607.png"  style="max-width: 100%; height: auto;">
 </p>
 
 
@@ -94,6 +94,7 @@ Se presenta un [Notebook](./notebooks/ETL%20y%20EDA.ipynb) con el el proceso com
 <p align="center">
 <img src="./_src/2. Serie temporal de Cantidad de Víctimas.png"  style="max-width: 100%; height: auto;">
 </p>
+
 
 #### **2.3. Cantidad de Víctimas por Hora del Día en días Laborales (sin incluir el año 2020)**
 -	En días laborables, entre los rangos horarios de 07 a 11 horas y de 14 a 18 horas, se produce un aumento del promedio de víctimas.
@@ -178,8 +179,8 @@ Para poder calcular métricas y realizar análisis adicionales fue necesario imp
 - Cantidad de Población por Año y por Comuna: https://www.estadisticaciudad.gob.ar/eyc/?p=28146
 - Mapa de comuna SHP: https://data.buenosaires.gob.ar/dataset/comunas/resource/Juqdkmgo-612222-resource
 - Datos de días No Laborables de Argentina a través de la API de https://nolaborables.com.ar/
-- Paleta de colores según el Manual de Marca del GCBA.
-- Tasa Víctimas cada 100 mil Habitantes de Argentina del "Anuario Estadístico de Siniestralidad Fatal Año 2021" de la Dirección Nacnioal de OBservatorio Vial.
+- Paleta de colores según el [Manual de Marca del GCBA](./Manual%20de%20marca%20GCBA/Manual%20de%20marca%20GCBA.pdf)
+- Tasa Víctimas cada 100 mil Habitantes de Argentina del [Anuario Estadístico de Siniestralidad Fatal Año 2021](./Reportes%20Siniestros%20Viales%20Argentina/anuario_estadistico_2021.pdf) de la Dirección Nacnioal de OBservatorio Vial.
 
 
 Como resultado se conformaron 3 Dashboards:
@@ -211,16 +212,18 @@ Como resultado se conformaron 3 Dashboards:
 
 # <h2 id="5">**5. Conclusiones Finales**</h2>
 - Desde el año 2019 se ha logrado reducir la cantidad de víctimas fatales por accidentes de tránsito en la Ciudad de Buenos Aires.
-- El año 2020 resultó un año atípico en el que las restricciones de la circulación por la Pandemia produjeron una reducción en la cantidad de siniestros viales.
+- El año 2020 resultó un año atípico en el que las restricciones de la circulación por la Pandemia produjeron una reducción en la cantidad de Siniestros Viales.
 - La Tasa de Siniestralidad por cada 100 mil Habitantes del año 2021 de la Ciudad de Buenos Aires se encuentra por debajo de la media nacional.
 - La variación de la Tasa de Siniestralidad Semestral (KPI1) y de la Tasa de accidentes de Motociclistas como Víctimas (KPI2) está fuertemente influenciada por tomar como referencia el año 2020 el cual fue de Pandemia. 
-- Las principales víctimas son los conductores de Moto y los Peatones y los principales causantes de los siniestros son los Autos y Transporte de Carga. Se ha logrado una reducción significativa de accidentes de tránsito causados por el Transporte Público desde el año 2019.
+- Las principales víctimas son los conductores de Moto y los Peatones (representando más del 80%) y los principales causantes de los siniestros son los Autos y Transporte de Carga (representando el 70%). Se ha logrado una reducción significativa de accidentes de tránsito causados por el Transporte Público desde el año 2019.
+- La mayoría de los Siniestros Viales se producen en intersecciones de calles y principalmente en Avenidas.
 - La principal zona de accidentes fatales es el microcentro (Comuna 1) en los días y horarios Laborales.
 - En días No Laborales las principales zonas de conflicto son la Comuna 8 que incluye los barrios de Villa Soldati, Villa Riachuelo y Villa Lugano y la Comuna 11 que incluyen los barrios de Villa General Mitre, Villa Devoto, Villa del Parque y Villa Santa Rita.
 
 # <h2 id="6">**6. Posibles medidas para la reducción de Siniestros Viales**</h2>
 
 - Limitar el transporte vehicular particular y de transporte de carga durante días Laborales y mejorar la infraestructura en la zona céntrica.
+- Mejorar la señalización y semaforización en las principales Intersecciones y Avenidas.
 - Reforzar los controles de tránsito, alcoholemia y velocidad en días No Laborales durante la madrugada en las zonas de Villa Soldati, Villa Riachuelo, Villa Lugano, Villa General Mitre, Villa Devoto, Villa del Parque y Villa Santa Rita.
 - Realizar campañas de educación vial y concientización enfocados en motociclistas y conductores jóvenes.
 
