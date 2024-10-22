@@ -117,7 +117,7 @@ Elaboración de un proyecto de anális de datos, con el fin de generar informaci
 -	Como se puede observar en el mapa de calor, la mayoría de las víctimas ocurren en las Comuna 1 y 4, en relación a la zona céntrica de la Ciudad, probablemente la que mayor tráfico tenga. Las medidas podrían focalizarse en estas zonas geográficas.
 -	En el mapa por puntos se corrobora lo mostrado en el gráfico de accidentes por Tipo de calle, que la mayor cantidad de accidentes suceden en Avenidas y Calles dentro de la ciudad.
 <p align="center">
-<img src="./_src/7. Mapa de Calor.png"  height=600>
+<img src="./_src/7. Mapa de Calor.png"  height=500>
 </p>
 
 
@@ -168,12 +168,12 @@ Como resultado se conformaron 3 Dashboards:
 
 - Un Overview que permita tener una primera aproximación general.
 <p align="center">
-<img src="./_src/11. Dashboard 1.png"  height=400>
+<img src="./_src/11. Dashboard 1.PNG"  height=400>
 </p>
 
 - Un dashboard de Georreferencicación que permitiera ver la ubicación geográfica de los siniestros viales y realizar un análisis pormenorizado de los focos de accidentes.
 <p align="center">
-<img src="./_src/12. Dashboard 2.png"  height=400>
+<img src="./_src/12. Dashboard 2.PNG"  height=400>
 </p>
 
 - Un dashboards de KPIs que nos permita evaluar cómo fueron evolucionan las métricas requeridas, considerando:
