@@ -8,9 +8,10 @@
 
 # **INTRODUCCIÓN y CONTEXTO:**
 
-Buenos Aires, como una de las ciudades más grandes y transitadas de Argentina, enfrenta un gran desafío en cuanto a la seguridad vial.
-El Observatorio de Movilidad y Seguridad Vial (OMSV), centro de estudios que se encuentra bajo la órbita de la Secretaría de Transporte del Gobierno de la Ciudad Autónoma de Buenos Aires, ha solicitadola elaboración de un proyecto de anális de datos, con el fin de generar información que le permita a las autoridades locales tomar medidas para disminuir la cantidad de víctimas fatales de los siniestros viales.
-El presente análisis permite dimensionar la problemática en la Ciudad de Buenos Aires, caracterizar los siniestros e identificar perfiles de víctimas. El objetivo es poder brindar datos vinculados a la siniestralidad vial fatal que generen información oportuna y relevante para la toma de decisiones basada en la evidencia.
+Buenos Aires, como una de las ciudades más grandes y transitadas de Argentina, enfrenta un gran desafío en cuanto a la seguridad vial. El Observatorio de Movilidad y Seguridad Vial (OMSV), un centro de estudios bajo la órbita de la Secretaría de Transporte del Gobierno de la Ciudad Autónoma de Buenos Aires, ha solicitado la elaboración de un proyecto de análisis de datos con el fin de generar información que permita a las autoridades locales tomar medidas para disminuir la cantidad de víctimas fatales en siniestros viales.
+
+Este análisis busca dimensionar la problemática en la Ciudad de Buenos Aires, caracterizar los siniestros y perfilar a las víctimas. El objetivo es proporcionar datos vinculados a la siniestralidad vial fatal que sirvan como información oportuna y relevante para la toma de decisiones basadas en evidencia.
+
 <p align="center">
 <img src="./_src/65a9608980bddc671e0e35c6c6305607.png"  style="max-width: 100%; height: auto;">
 </p>
@@ -33,10 +34,16 @@ El presente análisis permite dimensionar la problemática en la Ciudad de Bueno
 La información se obtuvo de la página oficial del [Gobierno de Buenos Aires](https://data.buenosaires.gob.ar/dataset/victimas-siniestros-viales):
 
 
-- **`Tabla de Hechos:`** contiene la información temporal, espacial y los participantes de cada Siniestro Vialuna indexada con un **`Id`**.
-- **`Tabla de Víctimas:`** contiene la información de las víctimas y se relacina con la tabla de Hechos mediante el **`Id`**. Puede haber más de una Víctima para un mismo Hecho.
+- **`Tabla de Hechos:`** contiene la información temporal, espacial y los participantes de cada siniestro vial, indexada con un **`Id`**.
+- **`Tabla de Víctimas:`** contiene la información de las víctimas involucradas en cada hecho, indexada por el  **`Id_hecho`**, permitiendo su relación con la tabla de Hechos.
+
 
 # <h2 id="2">**2. Análisis de datos - ETL y EDA**</h2>
+
+Se realizaron los siguientes pasos para el tratamiento y análisis de los datos:
+
+1. **ETL:** Extracción, transformación y carga de datos.
+2. **EDA:** Análisis exploratorio de los datos para obtener insights sobre la siniestralidad vial en la Ciudad de Buenos Aires.
 
 Se presenta un [Notebook](./notebooks/ETL%20y%20EDA.ipynb) con el el proceso completo de ETL y EDA.
 
@@ -78,6 +85,16 @@ Se presenta un [Notebook](./notebooks/ETL%20y%20EDA.ipynb) con el el proceso com
 
 # <h2 id="3">**3. Principales Conclusiones de EDA**</h2>
 
+Algunas de las conclusiones más relevantes obtenidas a partir del análisis de datos son:
+
+- **Perfil temporal**: Se observa una reducción en la cantidad de siniestros desde el año 2019. No se detecta estacionalidad mensual significativa al excluir el año 2020 (pandemia) del análisis.
+- **Perfil de las víctimas**: Las principales víctimas son motociclistas jóvenes, hombres entre 20 y 40 años, y peatones hombres entre 50 y 60 años.
+- **Zonas de mayor incidencia**: El microcentro, especialmente en las comunas 1 y 4, concentra la mayor cantidad de accidentes durante días y horarios laborales.
+- **Tipo de vías**: Los accidentes ocurren principalmente en intersecciones de calles y en avenidas.
+- **Horarios de mayor incidencia**: Las horas pico de tránsito laboral, especialmente en avenidas principales, presentan el mayor número de siniestros.
+- **Variaciones según el tipo de día**: En días no laborales, el horario más conflictivo es entre las 5:00 y las 7:00 horas, y las principales víctimas son jóvenes de entre 20 y 30 años.
+
+
 #### **2.1. Cantidad de Víctimas por Año**
 - El año con más cantidad de víctimas registrdas fue el 2018.
 - Se nota un descenso de la cantidad de víctimas a partir del año 2019. Es probable que se hayan tomado medidas para disminuir la los Siniestros Viales. 
@@ -104,10 +121,10 @@ Se presenta un [Notebook](./notebooks/ETL%20y%20EDA.ipynb) con el el proceso com
 </p>
 
 
-#### **2.4. Cantidad de Víctimas por Hora del Día en Fines de Semana (sin incluir el año 2020)**
-- El incremento del promedio de víctimas entre las 03 y 09 horas podría estar asociado a víctimas por excesos durante el retorno de fiestas. Verificar rango etario
-- Las medidas deberían estar orientadas a reducir los accidentes en el rango horario de 05 a 07 horas.
-- Se observa un rango de mayor cantidad de vícitimas fatales en días no laborales entre las 05 y 07 horas y para un rango etario entre 20 y 30 años.
+#### **2.4. Cantidad de Víctimas por Hora del Día en días No Laborales (sin incluir el año 2020)**
+- Se observa un rango de mayor cantidad de vícitimas fatales en días no laborales entre las 05 y 07 horas y para un rango etario entre 20 y 30 años, posiblemente asociado a víctimas por excesos durante el retorno de salidas nocturnas.
+- Las medidas deberían estar orientadas a reducir los accidentes en este tipo de días y rango horario.
+
 <p align="center">
 <img src="./_src/4. Cantidad de Víctimas por Hora del Día en días No Laborales.png"   style="max-width: 100%; height: auto;">
 </p>
@@ -161,9 +178,9 @@ Se presenta un [Notebook](./notebooks/ETL%20y%20EDA.ipynb) con el el proceso com
 </p>
 
 # <h2 id="4">**4. Dashboard**</h2>
- Una vez realizado el ETL y el EDA se elaboró un esquema de objetivos a alcanzar para la conformación un Storytelling que permitirera focalizar el análisis realizado en función de los resultados que se desean obtener.
+El Dashboard interactivo desarrollado en Power BI presenta visualizaciones y estadísticas claves para entender la siniestralidad vial en la Ciudad de Buenos Aires, segmentadas por fecha, comuna, tipo de vehículo y rol de las víctimas.
 
-**OJETIVOS**
+**OBJETIVOS**
 
 - ¿Cuál es el estado de situación actual en cuanto a la cantidad de accidentes viales en la ciudad de Buenos Aires respecto de la media nacional?
 - ¿Cómo ha sido la evolución temporal de los siniestros viales en el período?
@@ -211,6 +228,9 @@ Como resultado se conformaron 3 Dashboards:
 </p>
 
 # <h2 id="5">**5. Conclusiones Finales**</h2>
+
+El análisis de siniestralidad vial en la Ciudad de Buenos Aires ha permitido identificar patrones claros que pueden ayudar en la implementación de políticas públicas orientadas a la reducción de siniestros. 
+
 - Desde el año 2019 se ha logrado reducir la cantidad de víctimas fatales por accidentes de tránsito en la Ciudad de Buenos Aires.
 - El año 2020 resultó un año atípico en el que las restricciones de la circulación por la Pandemia produjeron una reducción en la cantidad de Siniestros Viales.
 - La Tasa de Siniestralidad por cada 100 mil Habitantes del año 2021 de la Ciudad de Buenos Aires se encuentra por debajo de la media nacional.
@@ -222,31 +242,33 @@ Como resultado se conformaron 3 Dashboards:
 
 # <h2 id="6">**6. Posibles medidas para la reducción de Siniestros Viales**</h2>
 
-- Limitar el transporte vehicular particular y de transporte de carga durante días Laborales y mejorar la infraestructura en la zona céntrica.
-- Mejorar la señalización y semaforización en las principales Intersecciones y Avenidas.
-- Reforzar los controles de tránsito, alcoholemia y velocidad en días No Laborales durante la madrugada en las zonas de Villa Soldati, Villa Riachuelo, Villa Lugano, Villa General Mitre, Villa Devoto, Villa del Parque y Villa Santa Rita.
-- Realizar campañas de educación vial y concientización enfocados en motociclistas y conductores jóvenes.
+Algunas de las recomendaciones propuestas incluyen:
+
+- **Restricciones al transporte**: Limitar el transporte vehicular particular y de carga durante los días laborales en la zona céntrica.
+- **Mejora de infraestructura**: Mejorar la señalización y la semaforización en intersecciones y avenidas principales.
+- **Controles de tránsito**: Reforzar controles de alcoholemia y velocidad, especialmente en días no laborales y durante la madrugada en zonas conflictivas como Villa Soldati, Villa Riachuelo, Villa Lugano, Villa General Mitre, Villa Devoto, Villa del Parque y Villa Santa Rita.
+- **Educación vial**: Implementar campañas de concientización enfocadas en motociclistas y conductores jóvenes.
 
 
 # <h2 id="7">**Requisitos**</h2>
 - Python 3.7 o superior
-- pandas
-- ydata_profiling
-- matplotlib
-- seaborn
-- gopandas
-- contextliy
+- pandas.
+- ydata_profiling.
+- matplotlib.
+- seaborn.
+- gopandas.
+- contextliy.
 - Power BI.
 
 
 # <h2 id="8">**Estructura del Proyecto**</h2>
-- `_src/`: Imágenes utilizadas y archivo Shape Ciudad de Buenos Aires.
-- `datasts/`: Contiene los archivos de datos utilizados
-- `notebooks/`: Jupyter notebooks con el análisis.
-- `ProfileReports/`: Con los reportes realizados con la librería `ydata_profiling`
-- `Reportes Siniestros Viales Argentina/`: Con bibliografía utilizada de la estadística de siniestros viales de Argentina
-- `Manual de marca GCBA/`: Con el manual de marcas y el tema de colores utilizado según el manual de marca de la Ciudad de Buenos Aires.
-- `Readme.md`: Documentación.
+- `_src/`: Imágenes y archivo Shape Ciudad de Buenos Aires.
+- `datasts/`: Archivos de datos utilizados.
+- `notebooks/`: Jupyter Notebooks con el análisis de los datos.
+- `ProfileReports/`: Reportes generados con la librería `ydata_profiling`
+- `Reportes Siniestros Viales Argentina/`: Bibliografía utilizada sobre la estadística de siniestros viales en Argentina.
+- `Manual de marca GCBA/`:  Manual de marca y colores utilizado según las directrices de la Ciudad de Buenos Aires.
+- `Readme.md`: Documentación del proyecto.
 - `PI02_Dashboard Siniestros Viales CBA.pbix`: Dashboard desarrollado en Power BI.
 
 # <h2 id="9">**Contacto**</h2>
